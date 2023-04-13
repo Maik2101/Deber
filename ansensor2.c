@@ -38,7 +38,7 @@ int main() {
                 
             case 'b':
                 printf("Ingrese el piso al que desea ir (0-9): ");
-                scanf("%d", &target_floor);
+                scanf("%d", &select);
                 if (select == pisoact) {
                     printf("El ascensor ya está en el piso %d\n", pisoact);
                 } else {
@@ -84,5 +84,5 @@ int main() {
         }
     } while (op != 'd');
     
-    return 0;
+return 0;
 }

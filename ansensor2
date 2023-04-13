@@ -1,0 +1,88 @@
+#include <stdio.h>
+
+int main() {
+    int pisoact = 0; // el ascensor comienza en el piso 0
+    int select; // el piso al que se desea ir
+    int llamarp; // el piso desde donde se llama al ascensor
+    int i; // variable de iteración para los bucles "for"
+    char op; // la opción elegida por el usuario en el menú
+    
+    do {
+        printf("Seleccione una opción:\n");
+        printf("a. Llamar ascensor\n");
+        printf("b. Seleccionar piso\n");
+        printf("c. Mostrar piso actual\n");
+        printf("d. Salir\n");
+        scanf(" %c", &op); // se utiliza un espacio antes de %c para ignorar los caracteres en blanco
+        
+        switch (op) {
+            case 'a':
+                printf("Ingrese el piso desde donde llama al ascensor (0-9): ");
+                scanf("%d", &llamarp);
+                if (llamarp == pisoact) {
+                    printf("El ascensor ya está en el piso %d\n", pisoact);
+                } else {
+                    if (llamarp > pisoact) {
+                        for (i = pisoact + 1; i <= llamarp; i++) {
+                            printf("Ascensor en piso %d\n", i);
+                        }
+                    } else {
+                        for (i = pisoact - 1; i >= llamarp; i--) {
+                            printf("Ascensor en piso %d\n", i);
+                        }
+                    }
+                    pisoact = llamarp;
+                    printf("El ascensor ha llegado al piso %d\n", pisoact);
+                }
+                break;
+                
+            case 'b':
+                printf("Ingrese el piso al que desea ir (0-9): ");
+                scanf("%d", &select);
+                if (select == pisoact) {
+                    printf("El ascensor ya está en el piso %d\n", pisoact);
+                } else {
+                    if (select > pisoact) {
+                        for (i = pisoact + 1; i <= select; i++) {
+                            printf("Ascensor en piso %d\n", i);
+                        }
+                    } else {
+                        for (i = pisoact - 1; i >= select; i--) {
+                            printf("Ascensor en piso %d\n", i);
+                        }
+                    }
+                    pisoact = select;
+                    printf("El ascensor ha llegado al piso %d\n", pisoact);
+                }
+                break;
+                
+            case 'c':
+                switch (pisoact) {
+                    case 0:
+                        printf("El ascensor está en la planta baja\n");
+                        break;
+                    case 1:
+                        printf("El ascensor está en el primer piso\n");
+                        break;
+                    case 2:
+                        printf("El ascensor está en el segundo piso\n");
+                        break;
+                    case 3:
+                        printf("El ascensor está en el tercer piso\n");
+                        break;
+                    default:
+                        printf("El ascensor está en el piso %d\n", pisoact);
+                }
+                break;
+                
+            case 'd':
+                printf("Adiós\n");
+                break;
+                
+            default:
+                printf("Opción no válida\n");
+        }
+    } while (op != 'd');
+    
+    return 0;
+}
