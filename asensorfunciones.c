@@ -7,7 +7,7 @@ int llamarp; // Piso desde donde se llama el ascensor
 void pisoair() {
     printf("Ingrese el piso al que desea ir el ascensor (0-9): ");
     scanf("%d", &select);
-    getchar(); // Elimina el caracter 'newline' del buffer
+    getchar(); // Elimina caracter 
 
     if (select < 0 || select > 9) { //condicion del hasta un cierto limite caso contrario no hace valido
         printf("Piso no válido\n");
